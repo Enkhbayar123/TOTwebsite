@@ -43,22 +43,19 @@ const Home = () => {
       id: 31,
       name: "Crossbody Bag",
       price: "Ksh 1,600",
-      image: "/images/crossbody-bag.JPG",
-      maker: "Handmade by Sheila"
+      image: "/images/crossbody-bag.JPG"
     },
     {
       id: 2,
       name: "Shopping Bag",
       price: "Ksh 1,500",
-      image: "/images/shopping-bag.jpg",
-      maker: "Handmade by Mama Wachuka"
+      image: "/images/shopping-bag.jpg"
     },
     {
       id: 28,
       name: "Christmas Stocking",
       price: "Ksh 1,300",
-      image: "/images/stocking.jpg",
-      maker: "Handmade by Terissia"
+      image: "/images/stocking.jpg"
     }
   ];
 
@@ -130,7 +127,6 @@ const Home = () => {
                     <h3 className="font-bold text-[#0c4a6e] text-lg">{product.name}</h3>
                     <span className="text-[#0284c7] font-extrabold text-xl">{product.price}</span>
                   </div>
-                  <p className="text-xs text-slate-400 font-bold uppercase tracking-wide">{product.maker}</p>
                 </div>
               </Link>
             ))}
@@ -182,7 +178,7 @@ const Home = () => {
                 <p className="text-slate-300 mb-10">Interested in partnering with us or ordering in bulk?</p>
                 <div className="space-y-8">
                   <div className="flex items-center gap-5"><div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#0284c7]"><MapPin size={24} /></div><div><p className="text-xs uppercase tracking-wider text-slate-400 font-bold">Location</p><p className="font-medium text-lg">Molo, Nakuru County, Kenya</p></div></div>
-                  <div className="flex items-center gap-5"><div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#0284c7]"><Mail size={24} /></div><div><p className="text-xs uppercase tracking-wider text-slate-400 font-bold">Email</p><p className="font-medium text-lg">emily.hooper@onecollective.org</p></div></div>
+                  <div className="flex items-center gap-5"><div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#0284c7]"><Mail size={24} /></div><div><p className="text-xs uppercase tracking-wider text-slate-400 font-bold">Email</p><p className="font-medium text-lg">info@threadsoftumaini.org</p></div></div>
                 </div>
               </div>
             </div>
@@ -218,4 +214,3 @@ const Home = () => {
 };
 
 export default Home;
-
