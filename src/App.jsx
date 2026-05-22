@@ -1,7 +1,7 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Facebook, Instagram } from 'lucide-react';
 
 // --- IMPORT YOUR PAGES ---
 import Home from './Home';
@@ -9,7 +9,8 @@ import About from './About';
 import Products from './Products';
 import Training from './Training';
 import Contact from './Contact';
-import Donate from './Donate'; // <--- NEW IMPORT
+import Donate from './Donate'; 
+import CommunityPrograms from './CommunityPrograms'; // <--- NEW IMPORT
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -50,18 +51,18 @@ const Navbar = () => {
         </Link>
 
         {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-6">
           <Link to="/" className={`${linkBaseClass} ${isActive('/') ? activeClass : inactiveClass}`}>Home</Link>
           <Link to="/about" className={`${linkBaseClass} ${isActive('/about') ? activeClass : inactiveClass}`}>About</Link>
           <Link to="/products" className={`${linkBaseClass} ${isActive('/products') ? activeClass : inactiveClass}`}>Products</Link>
           <Link to="/training" className={`${linkBaseClass} ${isActive('/training') ? activeClass : inactiveClass}`}>Training</Link>
+          <Link to="/community" className={`${linkBaseClass} ${isActive('/community') ? activeClass : inactiveClass}`}>Community</Link>
 
           <div className="flex items-center gap-3 ml-4">
             <button onClick={handleContactClick} className="px-6 py-2.5 rounded-full border-2 border-[#0284c7] text-[#0284c7] font-bold text-sm hover:bg-[#e0f2fe] transition-colors">
               Contact
             </button>
             
-            {/* UPDATED DONATE BUTTON */}
             <Link to="/donate" className="bg-[#0284c7] text-white px-7 py-3 rounded-full font-bold shadow-lg hover:bg-[#0c4a6e] transition-all text-sm uppercase transform hover:-translate-y-0.5">
               Donate
             </Link>
@@ -69,21 +70,21 @@ const Navbar = () => {
         </div>
 
         {/* MOBILE TOGGLE */}
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-[#0c4a6e] p-2">
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden text-[#0c4a6e] p-2">
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
       {/* MOBILE MENU */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 p-4 flex flex-col gap-2 md:hidden">
+        <div className="absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 p-4 flex flex-col gap-2 lg:hidden">
           <Link to="/" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 font-bold bg-slate-50 rounded-lg text-slate-700 hover:text-[#0284c7]">Home</Link>
           <Link to="/about" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 font-bold bg-slate-50 rounded-lg text-slate-700 hover:text-[#0284c7]">About</Link>
           <Link to="/products" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 font-bold bg-slate-50 rounded-lg text-slate-700 hover:text-[#0284c7]">Products</Link>
           <Link to="/training" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 font-bold bg-slate-50 rounded-lg text-slate-700 hover:text-[#0284c7]">Training</Link>
+          <Link to="/community" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 font-bold bg-slate-50 rounded-lg text-slate-700 hover:text-[#0284c7]">Community</Link>
           <button onClick={handleContactClick} className="block w-full text-left px-4 py-3 font-bold bg-slate-50 rounded-lg text-slate-700 hover:text-[#0284c7]">Contact</button>
           <div className="pt-2 mt-2 border-t border-slate-100">
-             {/* UPDATED MOBILE DONATE BUTTON */}
              <Link to="/donate" onClick={() => setIsMenuOpen(false)} className="block w-full text-center bg-[#0284c7] text-white py-3 rounded-xl font-bold shadow-md">
                Donate Now
              </Link>
@@ -101,6 +102,17 @@ const Footer = () => (
       <Link to="/">
         <img src="/TOH_LOGO-03.png" alt="Logo" className="h-10 w-auto opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500" />
       </Link>
+      
+      {/* SOCIAL LINKS */}
+      <div className="flex gap-4">
+        <a href="https://www.facebook.com/profile.php?id=61586594006521&sk=directory_links" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 hover:bg-[#0284c7] hover:text-white transition-all">
+          <Facebook size={20} />
+        </a>
+        <a href="https://www.instagram.com/tumaini_threads_of_hope/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 hover:bg-[#0284c7] hover:text-white transition-all">
+          <Instagram size={20} />
+        </a>
+      </div>
+
       <div className="flex gap-6 text-sm font-bold text-slate-500">
         <a href="#" className="hover:text-[#0284c7] transition-colors">Privacy Policy</a>
         <a href="#" className="hover:text-[#0284c7] transition-colors">Terms of Service</a>
@@ -121,8 +133,9 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
           <Route path="/training" element={<Training />} />
+          <Route path="/community" element={<CommunityPrograms />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/donate" element={<Donate />} /> {/* <--- NEW ROUTE */}
+          <Route path="/donate" element={<Donate />} /> 
         </Routes>
         <Footer />
       </div>

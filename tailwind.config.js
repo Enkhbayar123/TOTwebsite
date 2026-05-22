@@ -1,24 +1,35 @@
+// tailwind.config.js
 export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  
   theme: {
     extend: {
+      animation: {
+        'scroll': 'scroll 40s linear infinite',
+      },
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' }, 
+        }
+      },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
         serif: ['"Cormorant Garamond"', 'serif'],
       },
       colors: {
         brand: {
-          light: '#E0F7FA',     // Very light teal
-          DEFAULT: '#6DC0D5',   // THE LOGO TEAL
-          dark: '#2C5F6D',      // Darker version for text/footers
-          accent: '#F59E0B',    // Gold/Amber
+          light: '#E0F2FE',     
+          DEFAULT: '#007FFF',   
+          dark: '#0059B2',      
+          accent: '#F59E0B',    
         }
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(109, 192, 213, 0.4)',
+        'glow': '0 0 20px rgba(0, 127, 255, 0.4)', 
       }
     },
   },
